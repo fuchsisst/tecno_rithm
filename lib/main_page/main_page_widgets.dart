@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import 'assets/custom_icons.dart';
 
@@ -18,13 +19,50 @@ class _MainPageState extends State<MainPage> {
       body: Container(
         height: size.height,
         width: size.width,
-        child: Column(
-          children: <Widget>[CustomAppBar()],
+        color: Color.fromARGB(255, 28, 28, 28),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[CustomAppBar(), CustomNewsLine()],
+          ),
         ),
       ),
     );
   }
 }
+
+class CustomNewsLine extends StatefulWidget {
+  const CustomNewsLine({Key? key}) : super(key: key);
+
+  @override
+  _CustomNewsLineState createState() => _CustomNewsLineState();
+}
+
+class _CustomNewsLineState extends State<CustomNewsLine> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Stack(
+        children: [
+          Container(
+            height: 600,
+            color: Color.fromARGB(255, 28, 28, 28),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 30),
+                child: Image.asset('assets/images/Ads.png', scale: 0.84,),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
 
 class CustomAppBar extends StatefulWidget {
   const CustomAppBar({Key? key}) : super(key: key);
@@ -57,14 +95,42 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 children: [
                   Row(
                     children: [
-                      ElevatedButton(onPressed: () {}, child: Text('Акции')),
-                      SizedBox(
-                        width: 10,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text('Акции',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 40, 40, 40),
+                                  fontWeight: FontWeight.w600
+                              )),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Color.fromRGBO(236, 135, 92, 1.0)),
+                            shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0)),
+                            ),
+                            padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 12, horizontal: 28))
+                          ),
+                        ),
                       ),
-                      Icon(Icons.phone),
-                      Text("+(380) 98 - 359 -74 -68"),
                       SizedBox(
-                        width: 10,
+                        width: 15,
+                      ),
+                      Icon(Icons.phone,
+                        color: Color.fromRGBO(127, 167, 235, 1.0),),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "+(380) 98 - 359 -74 -68",
+                        style: TextStyle(
+                          color: Color.fromRGBO(127, 167, 235, 1.0),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 15,
                       ),
                     ],
                   ),
@@ -84,7 +150,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     child: Row(
                       children: [
                         Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
                             child: IconButton(
                               onPressed: () {},
                               icon: Icon(
@@ -93,7 +159,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                               ),
                             )),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: TextButton(
                               onPressed: () {},
                               child: Text(
@@ -106,7 +172,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                               )),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: IconButton(
                               onPressed: () {},
                               icon: Icon(
@@ -121,30 +187,80 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 ],
               ),
               Container(
-                color: Colors.grey[700],
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(45, 52, 67, 1.0),
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                ),
                 child: Row(
                   children: [
-                    Text('Поиск'),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        'Поиск товаров',
+                        style: TextStyle(
+                          color: Color.fromRGBO(250, 252, 255, 0.48),
+                        ),
+                      ),
+                    ),
                     SizedBox(
                       width: 420,
+                      height: 32,
                     ),
-                    Icon(Icons.search)
+                    Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 7),
+                        child: Icon(
+                          Icons.search,
+                          color: Color.fromRGBO(138, 157, 191, 1.0),
+                        )),
                   ],
                 ),
               ),
               Column(
                 children: [
                   Row(children: [
-                    Icon(MyFlutterApp.heart),
-                    Icon(Icons.shopping_cart),
-                    Icon(MyFlutterApp.user)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          MyFlutterApp.heart,
+                          color: Color.fromRGBO(157, 192, 255, 1.0),
+                          size: 25,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.shopping_cart,
+                          color: Color.fromRGBO(157, 192, 255, 1.0),
+                          size: 25,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          MyFlutterApp.user,
+                          color: Color.fromRGBO(92, 144, 236, 1.0),
+                          size: 25,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    )
                   ])
                 ],
               )
             ],
-          )
-        ],
-      ),
+          ),
+
+      ]),
     );
   }
 }
