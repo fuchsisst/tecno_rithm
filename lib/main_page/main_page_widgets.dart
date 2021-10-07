@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:tecno_rithm/main_page/custom_widgets/product_card/card_product.dart';
 
 import 'assets/custom_icons.dart';
 
@@ -22,13 +23,47 @@ class _MainPageState extends State<MainPage> {
         color: Color.fromARGB(255, 28, 28, 28),
         child: SingleChildScrollView(
           child: Column(
-            children: <Widget>[CustomAppBar(), CustomNewsLine()],
+            children: <Widget>[CustomAppBar(), CustomNewsLine(), TovariLine()],
           ),
         ),
       ),
     );
   }
 }
+
+class TovariLine extends StatefulWidget {
+  const TovariLine({Key? key}) : super(key: key);
+
+  @override
+  _TovariLineState createState() => _TovariLineState();
+}
+
+class _TovariLineState extends State<TovariLine> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Stack(
+        children: [
+          Container(
+            height: 600,
+            color: Color.fromARGB(255, 40, 40, 40),
+          ),
+          Container(
+            height: 260,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              separatorBuilder: (context, _)=>SizedBox(width: 12,),
+              itemCount: 8,
+              itemBuilder: (context, index) => Product_Card(index),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
 
 class CustomNewsLine extends StatefulWidget {
   const CustomNewsLine({Key? key}) : super(key: key);
