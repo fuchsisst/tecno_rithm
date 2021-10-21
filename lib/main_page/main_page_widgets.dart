@@ -54,7 +54,7 @@ class _TovariLineState extends State<TovariLine> {
               height: 260,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                separatorBuilder: (context, _)=>SizedBox(width: 12,),
+                separatorBuilder: (context, _)=>SizedBox(width: 8,),
                 itemCount: 8,
                 itemBuilder: (context, index) => Product_Card(index),
               ),

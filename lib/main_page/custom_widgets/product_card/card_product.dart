@@ -5,6 +5,7 @@ import 'package:tecno_rithm/main_page/custom_widgets/product_card/code_product.d
 import 'package:tecno_rithm/main_page/custom_widgets/product_card/constans_product.dart';
 import 'package:tecno_rithm/main_page/custom_widgets/product_card/image_product.dart';
 import 'package:tecno_rithm/main_page/custom_widgets/product_card/name_product.dart';
+import 'package:tecno_rithm/main_page/custom_widgets/product_card/rate_product.dart';
 
 Widget Product_Card(index) => Container(
       width: 200,
@@ -42,17 +43,23 @@ Widget Product_Card(index) => Container(
             ],
           ),
           //Product name
-          Row(children: <Widget>[
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-                child: ProductName(name: card_Name[index]),
-              ),
-            )
-          ],),
+          Container(
+            height: 60,
+            child: Row(children: <Widget>[
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 14, 12, 0),
+                  child: ProductName(name: card_Name[index]),
+                ),
+              )
+            ],),
+          ),
           Row(
             children: <Widget>[
-
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: ProductRating(),
+              )
             ],
           )
         ],
