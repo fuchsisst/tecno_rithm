@@ -34,35 +34,53 @@ class _AdsListTabSelectorState extends State<AdsListTabSelector>
   Widget build(BuildContext context) {
     return Stack(children: <Widget>[
       Container(
-        height: 600,
+        height: 400,
         color: Color.fromARGB(255, 28, 28, 28),
       ),
-      Container(
-        height: 400,
-        child: TabBarView(
-          controller: controller,
-          children: <Widget>[
-            Image.asset(
-              'assets/images/Ads.png',
-              scale: 0.84,
-            ),
-            Image.asset(
-              'assets/images/Ads1.jpg',
-              scale: 0.84,
-            ),
-            Image.asset(
-              'assets/images/Ads2.jpg',
-              scale: 0.84,
-            ),
-            Image.asset(
-              'assets/images/Ads3.jpg',
-              scale: 0.84,
-            ),
-            Image.asset(
-              'assets/images/Ads4.jpg',
-              scale: 0.84,
-            ),
-          ],
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 30),
+        child: Container(
+          height: 400,
+          width: double.infinity,
+          child: TabBarView(
+            controller: controller,
+            children: <Widget>[
+              FittedBox(
+                child: Image.asset(
+                  'assets/images/Ads.png',
+                ),
+                  fit: BoxFit.cover
+              ),
+              FittedBox(
+                child: Image.asset(
+                  'assets/images/Ads1.jpg',
+                  scale: 0.84,
+                ),
+                  fit: BoxFit.cover
+              ),
+              FittedBox(
+                child: Image.asset(
+                  'assets/images/Ads2.jpg',
+                  scale: 0.84,
+                ),
+                  fit: BoxFit.cover
+              ),
+              FittedBox(
+                child: Image.asset(
+                  'assets/images/Ads3.jpg',
+                  scale: 0.84,
+                ),
+                  fit: BoxFit.cover
+              ),
+              FittedBox(
+                child: Image.asset(
+                  'assets/images/Ads4.jpg',
+                  scale: 0.84,
+                ),
+                  fit: BoxFit.cover
+              ),
+            ],
+          ),
         ),
       ),
       TabPageSelector(

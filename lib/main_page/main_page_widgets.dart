@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
         color: Color.fromARGB(255, 28, 28, 28),
         child: SingleChildScrollView(
           child: Column(
-            children: <Widget>[CustomAppBar(), CustomNewsLine(), TovariLine()],
+            children: <Widget>[CustomAppBar(), AdsListTabSelector(), TovariLine()],
           ),
         ),
       ),
@@ -69,38 +69,7 @@ class _TovariLineState extends State<TovariLine> {
 
 
 
-class CustomNewsLine extends StatefulWidget {
-  const CustomNewsLine({Key? key}) : super(key: key);
 
-  @override
-  _CustomNewsLineState createState() => _CustomNewsLineState();
-}
-
-class _CustomNewsLineState extends State<CustomNewsLine> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Stack(
-        children: [
-          Container(
-            height: 600,
-            color: Color.fromARGB(255, 28, 28, 28),
-          ),
-          AdsListTabSelector()
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Padding(
-          //       padding: const EdgeInsets.symmetric(vertical: 30),
-          //       child: Image.asset('assets/images/Ads.png', scale: 0.84,),
-          //     ),
-          //   ],
-          // ),
-        ],
-      ),
-    );
-  }
-}
 
 
 
