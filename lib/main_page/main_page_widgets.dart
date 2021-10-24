@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:tecno_rithm/main_page/custom_widgets/product_card/card_product.dart';
 
 import 'assets/custom_icons.dart';
+import 'custom_widgets/ads_list/ads_tabrageselector.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -85,15 +86,16 @@ class _CustomNewsLineState extends State<CustomNewsLine> {
             height: 600,
             color: Color.fromARGB(255, 28, 28, 28),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 30),
-                child: Image.asset('assets/images/Ads.png', scale: 0.84,),
-              ),
-            ],
-          ),
+          AdsListTabSelector()
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Padding(
+          //       padding: const EdgeInsets.symmetric(vertical: 30),
+          //       child: Image.asset('assets/images/Ads.png', scale: 0.84,),
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );
