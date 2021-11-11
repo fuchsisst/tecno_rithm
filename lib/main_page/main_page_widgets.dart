@@ -46,7 +46,7 @@ class _TovariLineState extends State<TovariLine> {
       child: Stack(
         children: [
           Container(
-            height: 600,
+            height: 400,
             color: Color.fromARGB(255, 40, 40, 40),
           ),
           Padding(

@@ -32,14 +32,11 @@ class _AdsListTabSelectorState extends State<AdsListTabSelector>
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: <Widget>[
-      Container(
-        height: 400,
-        color: Color.fromARGB(255, 28, 28, 28),
-      ),
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 30),
-        child: Container(
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 30),
+      height: 400,
+      child: Stack(children: <Widget>[
+        Container(
           height: 400,
           width: double.infinity,
           child: TabBarView(
@@ -82,12 +79,16 @@ class _AdsListTabSelectorState extends State<AdsListTabSelector>
             ],
           ),
         ),
-      ),
-      TabPageSelector(
-        controller: controller,
-        color: Colors.indigo,
-        selectedColor: Colors.lightBlue,
-      ),
-    ]);
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 8),
+          alignment: Alignment.bottomCenter,
+          child: TabPageSelector(
+            controller: controller,
+            color: Color.fromRGBO(28, 28, 28, 1.0),
+            selectedColor: Color.fromRGBO(157, 192, 255, 1.0),
+          ),
+        ),
+      ]),
+    );
   }
 }
