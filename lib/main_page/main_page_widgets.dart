@@ -49,17 +49,44 @@ class _TovariLineState extends State<TovariLine> {
             height: 400,
             color: Color.fromARGB(255, 40, 40, 40),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
-            child: Container(
-              height: 260,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                separatorBuilder: (context, _)=>SizedBox(width: 8,),
-                itemCount: 8,
-                itemBuilder: (context, index) => Product_Card(index),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(40, 30, 0, 0),
+                child: Text('Лидеры продаж', style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w500, fontSize: 20),),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 30, 0, 0),
+                child: Container(
+                 height: 60,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    separatorBuilder: (context, _)=>SizedBox(width: 8,),
+                    itemCount: 20,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        color: Colors.purpleAccent,
+                        height: 10,
+                        width: 100,
+                      );
+                    },
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+                child: Container(
+                  height: 260,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    separatorBuilder: (context, _)=>SizedBox(width: 8,),
+                    itemCount: 8,
+                    itemBuilder: (context, index) => Product_Card(index),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
