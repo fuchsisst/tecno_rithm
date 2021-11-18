@@ -25,9 +25,50 @@ class _MainPageState extends State<MainPage> {
         color: Color.fromARGB(255, 28, 28, 28),
         child: SingleChildScrollView(
           child: Column(
-            children: <Widget>[CustomAppBar(), AdsListTabSelector(), TovariLine(), Container(height: 200,color: Color.fromARGB(255, 28, 28, 28))],
+            children: <Widget>[CustomAppBar(), AdsListTabSelector(), TovariLine(), TovariLineNew(), Container(height: 600,  color: Color.fromARGB(255, 40, 40, 40),)],
           ),
         ),
+      ),
+    );
+  }
+}
+
+
+class TovariLineNew extends StatelessWidget {
+  const TovariLineNew({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Stack(
+        children: [
+          Container(
+            height: 450,
+            color: Color.fromARGB(255, 28, 28, 28),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(40, 30, 0, 0),
+                child: Text('Новинки', style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w500, fontSize: 20),),
+              ),
+              TypeOfProductLine(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+                child: Container(
+                  height: 260,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    separatorBuilder: (context, _)=>SizedBox(width: 8,),
+                    itemCount: 8,
+                    itemBuilder: (context, index) => Product_Card(index),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -47,7 +88,7 @@ class _TovariLineState extends State<TovariLine> {
       child: Stack(
         children: [
           Container(
-            height: 500,
+            height: 450,
             color: Color.fromARGB(255, 40, 40, 40),
           ),
           Column(
