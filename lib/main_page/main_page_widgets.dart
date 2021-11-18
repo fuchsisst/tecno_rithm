@@ -5,6 +5,7 @@ import 'package:tecno_rithm/main_page/custom_widgets/product_card/card_product.d
 
 import 'assets/custom_icons.dart';
 import 'custom_widgets/ads_list/ads_tabrageselector.dart';
+import 'custom_widgets/popular_product_line/type_of_product_line.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _MainPageState extends State<MainPage> {
         color: Color.fromARGB(255, 28, 28, 28),
         child: SingleChildScrollView(
           child: Column(
-            children: <Widget>[CustomAppBar(), AdsListTabSelector(), TovariLine()],
+            children: <Widget>[CustomAppBar(), AdsListTabSelector(), TovariLine(), Container(height: 200,color: Color.fromARGB(255, 28, 28, 28))],
           ),
         ),
       ),
@@ -46,7 +47,7 @@ class _TovariLineState extends State<TovariLine> {
       child: Stack(
         children: [
           Container(
-            height: 400,
+            height: 500,
             color: Color.fromARGB(255, 40, 40, 40),
           ),
           Column(
@@ -56,26 +57,9 @@ class _TovariLineState extends State<TovariLine> {
                 padding: const EdgeInsets.fromLTRB(40, 30, 0, 0),
                 child: Text('Лидеры продаж', style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w500, fontSize: 20),),
               ),
+              TypeOfProductLine(),
               Padding(
-                padding: const EdgeInsets.fromLTRB(10, 30, 0, 0),
-                child: Container(
-                 height: 60,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    separatorBuilder: (context, _)=>SizedBox(width: 8,),
-                    itemCount: 20,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        color: Colors.purpleAccent,
-                        height: 10,
-                        width: 100,
-                      );
-                    },
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
                 child: Container(
                   height: 260,
                   child: ListView.separated(
