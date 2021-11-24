@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:tecno_rithm/main_page/custom_widgets/footer/card_services.dart';
 import 'package:tecno_rithm/main_page/custom_widgets/product_card/card_product.dart';
 
 import 'assets/custom_icons.dart';
 import 'custom_widgets/ads_list/ads_tabrageselector.dart';
+import 'custom_widgets/footer/constants_footer/constans_footer.dart';
 import 'custom_widgets/popular_product_line/type_of_product_line.dart';
 
 class MainPage extends StatefulWidget {
@@ -25,7 +27,7 @@ class _MainPageState extends State<MainPage> {
         color: Color.fromARGB(255, 28, 28, 28),
         child: SingleChildScrollView(
           child: Column(
-            children: <Widget>[CustomAppBar(), AdsListTabSelector(), TovariLine(), TovariLineNew(), Container(height: 600,  color: Color.fromARGB(255, 40, 40, 40),)],
+            children: <Widget>[CustomAppBar(), AdsListTabSelector(), TovariLine(), TovariLineNew(), Footer()],
           ),
         ),
       ),
@@ -33,6 +35,19 @@ class _MainPageState extends State<MainPage> {
   }
 }
 
+class Footer extends StatelessWidget {
+  const Footer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(padding: EdgeInsets.symmetric(vertical: 150, horizontal: 20),height: 600,  color: Color.fromARGB(255, 40, 40, 40),
+    child:Row(mainAxisAlignment: MainAxisAlignment.spaceAround,children:<Widget> [
+      CardServices(textContent[0], MyFlutterApp.fast_delivery),
+      CardServices(textContent[1],MyFlutterApp.secure),
+      CardServices(textContent[2], MyFlutterApp.wallet_filled_money_tool),
+      CardServices(textContent[3], MyFlutterApp.go_back_arrow)]),);
+  }
+}
 
 class TovariLineNew extends StatelessWidget {
   const TovariLineNew({Key? key}) : super(key: key);
@@ -284,7 +299,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       child: IconButton(
                         onPressed: () {},
                         icon: Icon(
-                          MyFlutterApp.heart,
+                          IconPack1.heart,
                           color: Color.fromRGBO(157, 192, 255, 1.0),
                           size: 25,
                         ),
@@ -306,7 +321,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       child: IconButton(
                         onPressed: () {},
                         icon: Icon(
-                          MyFlutterApp.user,
+                          IconPack1.user,
                           color: Color.fromRGBO(92, 144, 236, 1.0),
                           size: 25,
                         ),

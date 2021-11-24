@@ -23,7 +23,7 @@ Widget Product_Card(index) => Container(
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Icon(
-                  MyFlutterApp.heart,
+                  IconPack1.heart,
                   size: 30,
                   color: Color.fromARGB(255, 40, 40, 40),
                 ),
