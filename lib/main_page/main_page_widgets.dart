@@ -27,7 +27,13 @@ class _MainPageState extends State<MainPage> {
         color: Color.fromARGB(255, 28, 28, 28),
         child: SingleChildScrollView(
           child: Column(
-            children: <Widget>[CustomAppBar(), AdsListTabSelector(), TovariLine(), TovariLineNew(), Footer()],
+            children: <Widget>[
+              CustomAppBar(),
+              AdsListTabSelector(),
+              TovariLine(),
+              TovariLineNew(),
+              Footer()
+            ],
           ),
         ),
       ),
@@ -40,12 +46,86 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(padding: EdgeInsets.symmetric(vertical: 150, horizontal: 20),height: 600,  color: Color.fromARGB(255, 40, 40, 40),
-    child:Row(mainAxisAlignment: MainAxisAlignment.spaceAround,children:<Widget> [
-      CardServices(textContent[0], MyFlutterApp.fast_delivery),
-      CardServices(textContent[1],MyFlutterApp.secure),
-      CardServices(textContent[2], MyFlutterApp.wallet_filled_money_tool),
-      CardServices(textContent[3], MyFlutterApp.go_back_arrow)]),);
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 150, horizontal: 20),
+      height: 1600,
+      color: Color.fromARGB(255, 40, 40, 40),
+      child: Column(
+        children: [
+          Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                CardServices(textContent[0], MyFlutterApp.fast_delivery),
+                CardServices(textContent[1], MyFlutterApp.secure),
+                CardServices(
+                    textContent[2], MyFlutterApp.wallet_filled_money_tool),
+                CardServices(textContent[3], MyFlutterApp.go_back_arrow)
+              ]),
+          Padding(
+            padding: const EdgeInsets.only(top: 100),
+            child: Center(
+              child: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                Container(
+                  height: 35,
+                  width: 300,
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 28, 28, 28),
+                      borderRadius: BorderRadius.all(Radius.circular(12))),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                    child: Text('E-mail:', style: TextStyle(color: Colors.white70),),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 12),
+                  child: Container(
+                    height: 32,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text('Подписаться',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 40, 40, 40),
+                              fontWeight: FontWeight.w800)),
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Color.fromRGBO(236, 135, 92, 1.0)),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(12))),
+                          ),
+                          padding: MaterialStateProperty.all(EdgeInsets.symmetric(
+                              vertical: 12, horizontal: 28))),
+                    ),
+                  ),
+                )
+              ]),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 180),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('Компанія\nПро компанію\n\nІнформація про продавця\n\nГрупа компаній Фокстрот\n\nВідділ корпоративного продажу\n\nВакансії\n\nТендери\n\nНовини Фокстрот\n\nТорговельна нерухомість\n\nРебрендинг Фокстрот\n\nСоціальний проект\n\nКонтакти прес-служби\n\nУмови використання сайту\n\nПолітика конфіденційності', style: TextStyle(color: Colors.white30),),
+                Text('Покупцям\nАдреси магазинів «Фокстрот»\n\nПартнери\n\nОплата\n\nПовернення товару\n\nДоставка\n\nБлог\n\nАкції\n\nПослуги «Екстра-Сервіс»\n\nСервісна мережа\n\nФоксFan\n\nПодарункові картки\n\nБренди\n\nРозпродаж', style: TextStyle(color: Colors.white30),),
+                Text('Контакти\nРежим роботи магазинів\nНаші магазини по всій Україні\n\nІнформаційна служба:\n0 800 300-353\nБезкоштовно зі стаціонарних і\nмобільних телефонів в Україні\n\nEmail: info@foxtrot.com.ua\n\n\nГрафік роботи Call-Центру\nПн-Пт 08:30-21:00\nСб-Нд 08:30-21:00', style: TextStyle(color: Colors.white30),)
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 200),
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+              Image.asset('assets/images/facebook.png', scale: 12,),SizedBox(width: 18,),
+              Image.asset('assets/images/instagram.png', scale: 12,),SizedBox(width: 18,),
+              Image.asset('assets/images/viber.png', scale: 12,),SizedBox(width: 18,),
+              Image.asset('assets/images/telegram.png', scale: 12,),SizedBox(width: 18,),
+              Image.asset('assets/images/youtube.png', scale: 12,),
+            ],),
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -66,16 +146,25 @@ class TovariLineNew extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(40, 30, 0, 0),
-                child: Text('Новинки', style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w500, fontSize: 20),),
+                child: Text(
+                  'Новинки',
+                  style: TextStyle(
+                      color: Colors.white70,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20),
+                ),
               ),
               TypeOfProductLine(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
                 child: Container(
                   height: 260,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    separatorBuilder: (context, _)=>SizedBox(width: 8,),
+                    separatorBuilder: (context, _) => SizedBox(
+                      width: 8,
+                    ),
                     itemCount: 8,
                     itemBuilder: (context, index) => Product_Card(index),
                   ),
@@ -111,16 +200,25 @@ class _TovariLineState extends State<TovariLine> {
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(40, 30, 0, 0),
-                child: Text('Лидеры продаж', style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w500, fontSize: 20),),
+                child: Text(
+                  'Лидеры продаж',
+                  style: TextStyle(
+                      color: Colors.white70,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20),
+                ),
               ),
               TypeOfProductLine(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
                 child: Container(
                   height: 260,
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
-                    separatorBuilder: (context, _)=>SizedBox(width: 8,),
+                    separatorBuilder: (context, _) => SizedBox(
+                      width: 8,
+                    ),
                     itemCount: 8,
                     itemBuilder: (context, index) => Product_Card(index),
                   ),
@@ -133,12 +231,6 @@ class _TovariLineState extends State<TovariLine> {
     );
   }
 }
-
-
-
-
-
-
 
 class CustomAppBar extends StatefulWidget {
   const CustomAppBar({Key? key}) : super(key: key);
@@ -153,189 +245,189 @@ class _CustomAppBarState extends State<CustomAppBar> {
     return Container(
       color: Color.fromARGB(255, 40, 40, 40),
       height: 157,
-      child: Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Image.asset(
-                    'assets/images/Logo.png',
-                    scale: 1.5,
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text('Акции',
-                              style: TextStyle(
+      child: Column(children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                Image.asset(
+                  'assets/images/Logo.png',
+                  scale: 1.5,
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 12),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Акции',
+                            style: TextStyle(
                                 color: Color.fromARGB(255, 40, 40, 40),
-                                  fontWeight: FontWeight.w600
-                              )),
-                          style: ButtonStyle(
+                                fontWeight: FontWeight.w600)),
+                        style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
                                 Color.fromRGBO(236, 135, 92, 1.0)),
                             shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0)),
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0)),
                             ),
-                            padding: MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 12, horizontal: 28))
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Icon(Icons.phone,
-                        color: Color.fromRGBO(127, 167, 235, 1.0),),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "+(380) 98 - 359 -74 -68",
-                        style: TextStyle(
-                          color: Color.fromRGBO(127, 167, 235, 1.0),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Divider(
-            color: Colors.black87,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Container(
-                    child: Row(
-                      children: [
-                        Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            child: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.menu,
-                                color: Color.fromRGBO(127, 167, 235, 1.0),
-                              ),
-                            )),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Каталог',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  letterSpacing: 1.2,
-                                  fontSize: 18,
-                                ),
-                              )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.keyboard_arrow_down,
-                                color: Color.fromRGBO(127, 167, 235, 1.0),
-                                size: 30,
-                              )),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(45, 52, 67, 1.0),
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                ),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        'Поиск товаров',
-                        style: TextStyle(
-                          color: Color.fromRGBO(250, 252, 255, 0.48),
-                        ),
+                            padding: MaterialStateProperty.all(
+                                EdgeInsets.symmetric(
+                                    vertical: 12, horizontal: 28))),
                       ),
                     ),
                     SizedBox(
-                      width: 420,
-                      height: 32,
+                      width: 15,
                     ),
-                    Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 7),
-                        child: Icon(
-                          Icons.search,
-                          color: Color.fromRGBO(138, 157, 191, 1.0),
-                        )),
-                  ],
-                ),
-              ),
-              Column(
-                children: [
-                  Row(children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          IconPack1.heart,
-                          color: Color.fromRGBO(157, 192, 255, 1.0),
-                          size: 25,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.shopping_cart,
-                          color: Color.fromRGBO(157, 192, 255, 1.0),
-                          size: 25,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          IconPack1.user,
-                          color: Color.fromRGBO(92, 144, 236, 1.0),
-                          size: 25,
-                        ),
-                      ),
+                    Icon(
+                      Icons.phone,
+                      color: Color.fromRGBO(127, 167, 235, 1.0),
                     ),
                     SizedBox(
                       width: 5,
-                    )
-                  ])
+                    ),
+                    Text(
+                      "+(380) 98 - 359 -74 -68",
+                      style: TextStyle(
+                        color: Color.fromRGBO(127, 167, 235, 1.0),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+        Divider(
+          color: Colors.black87,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                Container(
+                  child: Row(
+                    children: [
+                      Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.menu,
+                              color: Color.fromRGBO(127, 167, 235, 1.0),
+                            ),
+                          )),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Каталог',
+                              style: TextStyle(
+                                color: Colors.white,
+                                letterSpacing: 1.2,
+                                fontSize: 18,
+                              ),
+                            )),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Color.fromRGBO(127, 167, 235, 1.0),
+                              size: 30,
+                            )),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(45, 52, 67, 1.0),
+                borderRadius: BorderRadius.all(Radius.circular(12)),
+              ),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      'Поиск товаров',
+                      style: TextStyle(
+                        color: Color.fromRGBO(250, 252, 255, 0.48),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 420,
+                    height: 32,
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 7),
+                      child: Icon(
+                        Icons.search,
+                        color: Color.fromRGBO(138, 157, 191, 1.0),
+                      )),
                 ],
-              )
-            ],
-          ),
-
+              ),
+            ),
+            Column(
+              children: [
+                Row(children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        IconPack1.heart,
+                        color: Color.fromRGBO(157, 192, 255, 1.0),
+                        size: 25,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.shopping_cart,
+                        color: Color.fromRGBO(157, 192, 255, 1.0),
+                        size: 25,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        IconPack1.user,
+                        color: Color.fromRGBO(92, 144, 236, 1.0),
+                        size: 25,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  )
+                ])
+              ],
+            )
+          ],
+        ),
       ]),
     );
   }
