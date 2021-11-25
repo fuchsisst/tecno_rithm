@@ -7,6 +7,8 @@ import 'package:tecno_rithm/main_page/custom_widgets/product_card/card_product.d
 import 'assets/custom_icons.dart';
 import 'custom_widgets/ads_list/ads_tabrageselector.dart';
 import 'custom_widgets/footer/constants_footer/constans_footer.dart';
+import 'custom_widgets/menu_widgets/catalog.dart';
+import 'custom_widgets/menu_widgets/drawer_menu.dart';
 import 'custom_widgets/popular_product_line/type_of_product_line.dart';
 
 class MainPage extends StatefulWidget {
@@ -21,6 +23,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      drawer: Menu(),
       body: Container(
         height: size.height,
         width: size.width,
@@ -313,48 +316,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              children: [
-                Container(
-                  child: Row(
-                    children: [
-                      Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.menu,
-                              color: Color.fromRGBO(127, 167, 235, 1.0),
-                            ),
-                          )),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Каталог',
-                              style: TextStyle(
-                                color: Colors.white,
-                                letterSpacing: 1.2,
-                                fontSize: 18,
-                              ),
-                            )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.keyboard_arrow_down,
-                              color: Color.fromRGBO(127, 167, 235, 1.0),
-                              size: 30,
-                            )),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
+           Catalog(),
             Container(
               decoration: BoxDecoration(
                 color: Color.fromRGBO(45, 52, 67, 1.0),
