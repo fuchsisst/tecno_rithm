@@ -29,7 +29,7 @@ class Menu extends StatelessWidget {
               ListTile(
                 title: const Text('Смартфоны и телефоны', style: TextStyle(color: Colors.white70)),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.of(context).pushNamed('/main_smartphone_page');
                 },
               ),
               ListTile(

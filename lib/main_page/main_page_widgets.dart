@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:tecno_rithm/global_constans/color_constans.dart';
 import 'package:tecno_rithm/main_page/custom_widgets/footer/card_services.dart';
 import 'package:tecno_rithm/main_page/custom_widgets/product_card/card_product.dart';
 
@@ -9,6 +10,7 @@ import 'custom_widgets/ads_list/ads_tabrageselector.dart';
 import 'custom_widgets/footer/constants_footer/constans_footer.dart';
 import 'custom_widgets/menu_widgets/catalog.dart';
 import 'custom_widgets/menu_widgets/drawer_menu.dart';
+import 'custom_widgets/menu_widgets/user_autorization.dart';
 import 'custom_widgets/popular_product_line/type_of_product_line.dart';
 
 class MainPage extends StatefulWidget {
@@ -27,7 +29,7 @@ class _MainPageState extends State<MainPage> {
       body: Container(
         height: size.height,
         width: size.width,
-        color: Color.fromARGB(255, 28, 28, 28),
+        color: DarkGrey,
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -52,7 +54,7 @@ class Footer extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 150, horizontal: 20),
       height: 1600,
-      color: Color.fromARGB(255, 40, 40, 40),
+      color: NeutralGrey,
       child: Column(
         children: [
           Row(
@@ -75,8 +77,12 @@ class Footer extends StatelessWidget {
                       color: Color.fromARGB(255, 28, 28, 28),
                       borderRadius: BorderRadius.all(Radius.circular(12))),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-                    child: Text('E-mail:', style: TextStyle(color: Colors.white70),),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 12),
+                    child: Text(
+                      'E-mail:',
+                      style: TextStyle(color: Colors.white70),
+                    ),
                   ),
                 ),
                 Padding(
@@ -94,10 +100,12 @@ class Footer extends StatelessWidget {
                               Color.fromRGBO(236, 135, 92, 1.0)),
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(12))),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12))),
                           ),
-                          padding: MaterialStateProperty.all(EdgeInsets.symmetric(
-                              vertical: 12, horizontal: 28))),
+                          padding: MaterialStateProperty.all(
+                              EdgeInsets.symmetric(
+                                  vertical: 12, horizontal: 28))),
                     ),
                   ),
                 )
@@ -110,21 +118,60 @@ class Footer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('Компанія\nПро компанію\n\nІнформація про продавця\n\nГрупа компаній Фокстрот\n\nВідділ корпоративного продажу\n\nВакансії\n\nТендери\n\nНовини Фокстрот\n\nТорговельна нерухомість\n\nРебрендинг Фокстрот\n\nСоціальний проект\n\nКонтакти прес-служби\n\nУмови використання сайту\n\nПолітика конфіденційності', style: TextStyle(color: Colors.white30),),
-                Text('Покупцям\nАдреси магазинів «Фокстрот»\n\nПартнери\n\nОплата\n\nПовернення товару\n\nДоставка\n\nБлог\n\nАкції\n\nПослуги «Екстра-Сервіс»\n\nСервісна мережа\n\nФоксFan\n\nПодарункові картки\n\nБренди\n\nРозпродаж', style: TextStyle(color: Colors.white30),),
-                Text('Контакти\nРежим роботи магазинів\nНаші магазини по всій Україні\n\nІнформаційна служба:\n0 800 300-353\nБезкоштовно зі стаціонарних і\nмобільних телефонів в Україні\n\nEmail: info@foxtrot.com.ua\n\n\nГрафік роботи Call-Центру\nПн-Пт 08:30-21:00\nСб-Нд 08:30-21:00', style: TextStyle(color: Colors.white30),)
+                Text(
+                  'Компанія\nПро компанію\n\nІнформація про продавця\n\nГрупа компаній Фокстрот\n\nВідділ корпоративного продажу\n\nВакансії\n\nТендери\n\nНовини Фокстрот\n\nТорговельна нерухомість\n\nРебрендинг Фокстрот\n\nСоціальний проект\n\nКонтакти прес-служби\n\nУмови використання сайту\n\nПолітика конфіденційності',
+                  style: TextStyle(color: Colors.white30),
+                ),
+                Text(
+                  'Покупцям\nАдреси магазинів «Фокстрот»\n\nПартнери\n\nОплата\n\nПовернення товару\n\nДоставка\n\nБлог\n\nАкції\n\nПослуги «Екстра-Сервіс»\n\nСервісна мережа\n\nФоксFan\n\nПодарункові картки\n\nБренди\n\nРозпродаж',
+                  style: TextStyle(color: Colors.white30),
+                ),
+                Text(
+                  'Контакти\nРежим роботи магазинів\nНаші магазини по всій Україні\n\nІнформаційна служба:\n0 800 300-353\nБезкоштовно зі стаціонарних і\nмобільних телефонів в Україні\n\nEmail: info@foxtrot.com.ua\n\n\nГрафік роботи Call-Центру\nПн-Пт 08:30-21:00\nСб-Нд 08:30-21:00',
+                  style: TextStyle(color: Colors.white30),
+                )
               ],
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 200),
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              Image.asset('assets/images/facebook.png', scale: 12,),SizedBox(width: 18,),
-              Image.asset('assets/images/instagram.png', scale: 12,),SizedBox(width: 18,),
-              Image.asset('assets/images/viber.png', scale: 12,),SizedBox(width: 18,),
-              Image.asset('assets/images/telegram.png', scale: 12,),SizedBox(width: 18,),
-              Image.asset('assets/images/youtube.png', scale: 12,),
-            ],),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset(
+                  'assets/images/facebook.png',
+                  scale: 12,
+                ),
+                SizedBox(
+                  width: 18,
+                ),
+                Image.asset(
+                  'assets/images/instagram.png',
+                  scale: 12,
+                ),
+                SizedBox(
+                  width: 18,
+                ),
+                Image.asset(
+                  'assets/images/viber.png',
+                  scale: 12,
+                ),
+                SizedBox(
+                  width: 18,
+                ),
+                Image.asset(
+                  'assets/images/telegram.png',
+                  scale: 12,
+                ),
+                SizedBox(
+                  width: 18,
+                ),
+                Image.asset(
+                  'assets/images/youtube.png',
+                  scale: 12,
+                ),
+              ],
+            ),
           )
         ],
       ),
@@ -196,7 +243,7 @@ class _TovariLineState extends State<TovariLine> {
         children: [
           Container(
             height: 450,
-            color: Color.fromARGB(255, 40, 40, 40),
+            color: NeutralGrey,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -246,7 +293,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 40, 40, 40),
+      color: NeutralGrey,
       height: 157,
       child: Column(children: [
         Row(
@@ -271,11 +318,11 @@ class _CustomAppBarState extends State<CustomAppBar> {
                         onPressed: () {},
                         child: Text('Акции',
                             style: TextStyle(
-                                color: Color.fromARGB(255, 40, 40, 40),
+                                color: NeutralGrey,
                                 fontWeight: FontWeight.w600)),
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Color.fromRGBO(236, 135, 92, 1.0)),
+                            backgroundColor:
+                                MaterialStateProperty.all<Color>(OrangeColor),
                             shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20.0)),
@@ -316,7 +363,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-           Catalog(),
+            Catalog(),
             Container(
               decoration: BoxDecoration(
                 color: Color.fromRGBO(45, 52, 67, 1.0),
@@ -371,17 +418,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        IconPack1.user,
-                        color: Color.fromRGBO(92, 144, 236, 1.0),
-                        size: 25,
-                      ),
-                    ),
-                  ),
+                  UserAutorization(),
                   SizedBox(
                     width: 5,
                   )
