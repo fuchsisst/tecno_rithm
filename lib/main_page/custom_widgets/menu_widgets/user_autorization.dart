@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tecno_rithm/autorization/sing_in.dart';
 import 'package:tecno_rithm/main_page/assets/custom_icons.dart';
 
 class UserAutorization extends StatelessWidget {
@@ -10,7 +11,10 @@ class UserAutorization extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 5),
       child: IconButton(
         onPressed: () {
-          Navigator.of(context).pushNamed('/authorization');
+          showDialog(
+            context: context,
+            builder: (_) => Login(),
+          );
         },
         icon: Icon(
           IconPack1.user,
