@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tecno_rithm/global_constans/color_constans.dart';
+import './components_autorization/textfields.dart';
+
+import '../global_constans/color_constans.dart';
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
@@ -44,62 +46,26 @@ class Login extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Container(
-                    height: 40,
-                    child: TextField(
-                      style: TextStyle(
-                        fontSize: 14
-                      ),
-                      decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: DarkGrey, width: 1.0),),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue, width: 1.0),
-                          ),
-                        labelText: 'Login or E-mail',
-                          labelStyle: new TextStyle(
-                              color: White54
-                          )
-                      ),
-                    ),
-                  ),
+                  AuthorizationTextField('Login or E-mail', false),
                   SizedBox(
                     height: 8,
                   ),
-                  Container(
-                    height: 40,
-                    child: TextField(
-                      obscureText: true,
-                      style: TextStyle(
-                          fontSize: 14
-                      ),
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: DarkGrey, width: 1.0),),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.blue, width: 1.0),
-                          ),
-                        labelText: 'Password',
-                          labelStyle: new TextStyle(
-                              color: White54
-                          )
-                      ),
-
-                    ),
-                  ),
+                  AuthorizationTextField('Password', true),
                   SizedBox(
                     height: 6,
                   ),
                   Align(
                     alignment: Alignment.bottomRight,
                     child: InkWell(
-                      onTap: () { print("tapped");},
+                      onTap: () {
+                        print("tapped");
+                      },
                       child: Text(
-                        'Forgot you password?', style: TextStyle(
-                        color: BlueColor,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 12
-                      ),
+                        'Forgot you password?',
+                        style: TextStyle(
+                            color: BlueColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12),
                       ),
                     ),
                   ),
@@ -108,34 +74,43 @@ class Login extends StatelessWidget {
                   ),
                   Container(
                     height: 35,
-                      width: double.infinity,
-                      child: ClipRRect(
+                    width: double.infinity,
+                    child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
                         child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text('Sign up'),
+                          onPressed: () {},
+                          child: Text('Sign in'),
                           style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  OrangeColor),),
+                            backgroundColor:
+                                MaterialStateProperty.all<Color>(OrangeColor),
+                          ),
                         )),
-                        ),
+                  ),
                   SizedBox(
                     height: 5,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('You don\'t have an account?', style: TextStyle(
-                        color: White38,
-                        fontWeight: FontWeight.w400
-                      ),),
-                      SizedBox(width: 4,),
+                      Text(
+                        'You don\'t have an account?',
+                        style: TextStyle(
+                            color: White38, fontWeight: FontWeight.w400),
+                      ),
+                      SizedBox(
+                        width: 4,
+                      ),
                       InkWell(
-                          onTap: () { print("tapped");},
-                          child: Text('Sign Up',style: TextStyle(
+                          onTap: () {
+                            print("tapped");
+                          },
+                          child: Text(
+                            'Sign Up',
+                            style: TextStyle(
                               color: BlueColor,
                               fontWeight: FontWeight.w400,
-                          ),))
+                            ),
+                          ))
                     ],
                   ),
                 ],
