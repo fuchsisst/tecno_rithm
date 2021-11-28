@@ -19,7 +19,7 @@ class Login extends StatelessWidget {
         child: Row(
           children: <Widget>[
             SizedBox(
-              width: 10,
+              width: 20,
             ),
             Expanded(
               child: Column(
@@ -38,7 +38,7 @@ class Login extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 20,
+              width: 25,
             ),
             Expanded(
               child: Column(
@@ -46,60 +46,96 @@ class Login extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(12))
-                    ),
                     child: TextField(
+                      style: TextStyle(
+                        fontSize: 14
+                      ),
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: DarkGrey, width: 1.0),),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                          ),
                         labelText: 'Login or E-mail',
+                          labelStyle: new TextStyle(
+                              color: White54
+                          )
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 8,
                   ),
                   Container(
                     height: 40,
                     child: TextField(
                       obscureText: true,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Password',
+                      style: TextStyle(
+                          fontSize: 14
                       ),
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: DarkGrey, width: 1.0),),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.blue, width: 1.0),
+                          ),
+                        labelText: 'Password',
+                          labelStyle: new TextStyle(
+                              color: White54
+                          )
+                      ),
+
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 6,
                   ),
                   Align(
                     alignment: Alignment.bottomRight,
-                    child: TextButton(
-                      onPressed: () {},
+                    child: InkWell(
+                      onTap: () { print("tapped");},
                       child: Text(
-                        'Forgot you password?',
+                        'Forgot you password?', style: TextStyle(
+                        color: BlueColor,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12
+                      ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 40,
                   ),
                   Container(
-                      child: ElevatedButton(
-                          onPressed: () {},
-                          child: Row(
-                            children: <Widget>[Text('Sign up')],
-                          ))),
+                    height: 35,
+                      width: double.infinity,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(18),
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text('Sign up'),
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  OrangeColor),),
+                        )),
+                        ),
                   SizedBox(
                     height: 5,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('You don\'t have an account?'),
-                      TextButton(
-                        child: Text('Sign Up'),
-                        onPressed: () {},
-                      )
+                      Text('You don\'t have an account?', style: TextStyle(
+                        color: White38,
+                        fontWeight: FontWeight.w400
+                      ),),
+                      SizedBox(width: 4,),
+                      InkWell(
+                          onTap: () { print("tapped");},
+                          child: Text('Sign Up',style: TextStyle(
+                              color: BlueColor,
+                              fontWeight: FontWeight.w400,
+                          ),))
                     ],
                   ),
                 ],
