@@ -5,14 +5,17 @@ import '/global_constans/color_constans.dart';
 class AuthorizationTextField extends StatelessWidget {
   late final String text;
   late final bool obscureText;
+  final TextEditingController controller;
 
-  AuthorizationTextField(this.text, this.obscureText);
+
+  AuthorizationTextField(this.text, this.obscureText, this.controller);
 
   @override
   Widget build(BuildContext context) {
     return Container(
         height: 40,
         child: TextField(
+          controller: controller,
           obscureText: obscureText,
           style: TextStyle(fontSize: 14, color: White54),
           decoration: InputDecoration(

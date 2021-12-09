@@ -10,6 +10,7 @@ import 'custom_widgets/ads_list/ads_tabrageselector.dart';
 import 'custom_widgets/footer/constants_footer/constans_footer.dart';
 import 'custom_widgets/menu_widgets/catalog.dart';
 import 'custom_widgets/menu_widgets/drawer_menu.dart';
+import 'custom_widgets/menu_widgets/search/search_line_wifget.dart';
 import 'custom_widgets/menu_widgets/user_autorization.dart';
 import 'custom_widgets/popular_product_line/type_of_product_line.dart';
 
@@ -364,35 +365,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Catalog(),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(45, 52, 67, 1.0),
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      'Поиск товаров',
-                      style: TextStyle(
-                        color: Color.fromRGBO(250, 252, 255, 0.48),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 420,
-                    height: 32,
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child: Icon(
-                        Icons.search,
-                        color: Color.fromRGBO(138, 157, 191, 1.0),
-                      )),
-                ],
-              ),
-            ),
+            SearchLine(),
             Column(
               children: [
                 Row(children: [

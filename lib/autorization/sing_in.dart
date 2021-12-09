@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import './components_autorization/textfields.dart';
-
 import '../global_constans/color_constans.dart';
 
 class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
 
   @override
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
@@ -46,11 +47,11 @@ class Login extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  AuthorizationTextField('Login or E-mail', false),
+                  AuthorizationTextField('Login or E-mail', false, emailController),
                   SizedBox(
                     height: 8,
                   ),
-                  AuthorizationTextField('Password', true),
+                  AuthorizationTextField('Password', true, passwordController),
                   SizedBox(
                     height: 6,
                   ),
@@ -78,7 +79,9 @@ class Login extends StatelessWidget {
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+
+                          },
                           child: Text('Sign in'),
                           style: ButtonStyle(
                             backgroundColor:

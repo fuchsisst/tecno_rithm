@@ -10,3 +10,6 @@ const Color White38 = Colors.white38;
 
 //цвет для выделения интерактивного текста
 const Color BlueColor = Colors.lightBlue;
+
+//цвет поисковой строки
+const Color DarkBlue = Color.fromRGBO(45, 52, 67, 1.0);
